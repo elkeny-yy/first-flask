@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, os
 
 app = Flask(__name__)
 
@@ -14,4 +14,4 @@ def proses():
     return render_template('hasil.html', nama=nama)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=os.getenv("PORT", default=5000))
